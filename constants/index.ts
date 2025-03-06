@@ -2,8 +2,8 @@ import { RxHome, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
 
 export const SkillData = [
   {
-    name: "Html 5",
-    Image: "/html.png",
+    name: "Unity",
+    Image: "/unity.png",
     width: 80,
     height: 80,
   },
@@ -14,8 +14,14 @@ export const SkillData = [
     height: 80,
   },
   {
-    name: "JavaScript",
-    Image: "/js.png",
+    name: "Java",
+    Image: "/Java.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "C#",
+    Image: "/c-sharp.png",
     width: 65,
     height: 65,
   },
@@ -31,13 +37,6 @@ export const SkillData = [
     width: 80,
     height: 80,
   },
-  {
-    name: "Redux",
-    Image: "/redux.png",
-    width: 80,
-    height: 80,
-  },
-
   {
     name: "TypeScript",
     Image: "/ts.png",
@@ -57,22 +56,16 @@ export const SkillData = [
     height: 80,
   },
   {
-    name: "Stripe Payment",
-    Image: "/stripe.webp",
-    width: 80,
-    height: 80,
-  },
-  {
     name: "Node js",
     Image: "/node-js.png",
     width: 80,
     height: 80,
   },
   {
-    name: "Mongo db",
-    Image: "/mongodb.png",
-    width: 40,
-    height: 40,
+    name: "Microsoft SQL",
+    Image: "/SQL.png",
+    width: 90,
+    height: 90,
   },
 ];
 
