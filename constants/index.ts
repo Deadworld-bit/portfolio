@@ -1,3 +1,4 @@
+import { link } from "fs";
 import { RxHome, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
 
 export const SkillData = [
@@ -85,24 +86,52 @@ export const Socials = [
 ];
 export const Projects = [
   {
-    title: "Modern Nextjs Website",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    title: "TurnBasedStrategy_Testing",
+    text: "This Unity project is a turn-based strategy game using an action point system, custom grid-based movement, and smart enemy AI that selects optimal actions based on AP and tactical value.",
     src: "/NextWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
   },
   {
     title: "Space Themed Website",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     src: "/SpaceWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
   },
   {
     title: "Modern Nextjs Portfolio",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    src: "/WebPortfolio.png",
+    src: "/SpaceWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
   },
   {
     title: "Matrix themed Website",
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     src: "/Matrix.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
+  },
+  {
+    title: "Modern Nextjs Website",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    src: "/NextWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
+  },
+  {
+    title: "Space Themed Website",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    src: "/SpaceWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
+  },
+  {
+    title: "Modern Nextjs Portfolio",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    src: "/SpaceWebsite.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
+  },
+  {
+    title: "Matrix themed Website",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    src: "/Matrix.png",
+    link: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing",
   },
 ];
 

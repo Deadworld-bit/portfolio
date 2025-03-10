@@ -5,15 +5,22 @@ import "swiper/css";
 import { SkillData } from "@/constants";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 const Page = () => {
   return (
     <div
       style={{ backgroundImage: "url(/bg-2.jpg)" }}
-      className="h-screen w-screen flex items-center justify-center bg-cover bg-center"
+      className="h-screen w-screen flex items-center justify-center bg-cover bg-center relative"
     >
-      <div className="flex flex-col gap-20 max-w-[80%] text-center items-center">
-        <div className="flex flex-col items-center gap-4">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20 z-0"></div>
+      <div className="flex flex-col gap-20 max-w-[80%] text-center items-center relative z-10">
+        <motion.div
+          className="flex flex-col items-center gap-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1 className="font-semibold text-white text-[50px]">
             Skills{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
@@ -25,7 +32,7 @@ const Page = () => {
           <p className="text-gray-400 text-[20px]">
             Using the latest tech this world has to offer
           </p>
-        </div>
+        </motion.div>
         <Swiper
           slidesPerView={5}
           loop={true}
@@ -39,12 +46,18 @@ const Page = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <Image
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  src={skill.Image}
+                  alt={skill.name}
+                  width={skill.width}
+                  height={skill.height}
+                  className="rounded-lg"
+                />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -54,7 +67,7 @@ const Page = () => {
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
-            reverseDirection: true
+            reverseDirection: true,
           }}
           speed={5000}
           modules={[Autoplay]}
@@ -62,12 +75,18 @@ const Page = () => {
         >
           {SkillData.map((skill, index) => (
             <SwiperSlide key={index}>
-              <Image
-                src={skill.Image}
-                alt={skill.name}
-                width={skill.width}
-                height={skill.height}
-              />
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Image
+                  src={skill.Image}
+                  alt={skill.name}
+                  width={skill.width}
+                  height={skill.height}
+                  className="rounded-lg"
+                />
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>
