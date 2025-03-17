@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[![Create a Portfolio Page with Next.js and Tailwind.css | © 2025 by Deadworld ]](https://github.com/Deadworld-bit/portfolio.git)
+# Welcome to Portfolio repository
+## This repo stores portfolio project. You will find in this repo the following stuff
+### Stunning Hero Section
+* A visually striking landing page with a cosmic background and an attention-grabbing tagline.
+* Quick links to learn more about my work, explore projects, and get in touch.
 
-## Getting Started
+### Stunning Hero Section
+* A dedicated section displaying the languages, frameworks, and tools I use.
+* Icon-based showcase for an at-a-glance view of my tech stack (e.g., C#, Unity, React, TypeScript).
 
-First, run the development server:
+### Stunning Hero Section
+* Highlighted projects with screenshots and brief descriptions.
+* “View Details” buttons for additional information on each project.
+* Includes 3D game demos, parkour prototypes, endless runners, and more.
+     
+### Stunning Hero Section
+* A simple, clean form to let visitors reach out.
+* Collects name, email, and message.
+* Integrated with a backend service or email provider
+     
+## Screenshots:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Project First ScreenShot](https://github.com/Deadworld-bit/portfolio/blob/main/public/Screenshot_01%20(1).png)<br><br>
+![Project Second ScreenShot](https://github.com/Deadworld-bit/portfolio/blob/main/public/Screenshot_01%20(5).png)<br><br>  
+![Project Third ScreenShot](https://github.com/Deadworld-bit/portfolio/blob/main/public/Screenshot_01%20(6).png)<br><br>  
+![Project Third ScreenShot](https://github.com/Deadworld-bit/portfolio/blob/main/public/Screenshot_01%20(7).png)<br><br> 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Link: https://portfolio-mu-lake-28.vercel.app
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##### © Deadworld 2025
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
