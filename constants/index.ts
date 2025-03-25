@@ -72,16 +72,19 @@ export const SkillData = [
 
 export const Socials = [
   {
+    name: "Linkedln",
+    src: "/linkedin.svg",
+    link: "https://www.linkedin.com/in/thanhducdev/",
+  },
+  {
+    name: "Github",
+    src: "/github-color.svg",
+    link: "https://github.com/Deadworld-bit",
+  },
+  {
     name: "Discord",
-    src: "/instagram.svg",
-  },
-  {
-    name: "Facebook",
-    src: "/facebook.svg",
-  },
-  {
-    name: "Instagram",
     src: "/discord.svg",
+    link: "https://discord.com/users/Deadworld#8732",
   },
 ];
 export const Projects = [
@@ -144,10 +147,5 @@ export const NavLinks = [
     name: "/my-projects",
     icon: RxDashboard,
     link: "/my-projects",
-  },
-  {
-    name: "/contact-me",
-    icon: RxClipboard,
-    link: "/contact-me",
   },
 ];
