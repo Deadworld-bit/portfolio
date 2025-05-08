@@ -1,5 +1,4 @@
-import { link } from "fs";
-import { RxHome, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
+import { RxHome, RxPerson, RxDashboard } from "react-icons/rx";
 
 export const SkillData = [
   {
@@ -101,6 +100,12 @@ export const Projects = [
     link: "https://github.com/Deadworld-bit/Parkour_Testing",
   },
   {
+    title: "CasualPuzzle_Testing",
+    text: "In this project, the player guides a Main Character (MC) along a winding path on an isometric map. The MC follows a red dot controlled by touch or mouse input, navigating through enemies and environmental obstacles to reach the end of each level within a time limit.",
+    src: "/Pic_07.png",
+    link: "https://github.com/Deadworld-bit/CasualPuzzle_Testing",
+  },
+  {
     title: "BWM_BuildWorkshopManagement_BE",
     text: "BWM, is a purpose-built application tailored to efficiently manage the intricacies of Jama decor factory. This versatile tool oversees customer orders, tracks items and materials, assigns and monitors worker tasks, and generates insightful reports. ​",
     src: "/Pic_02.png",
@@ -109,7 +114,7 @@ export const Projects = [
   {
     title: "EndlessRunner_Testing",
     text: "EndlessRunner_Testing is an endless runner game where players overcome obstacles and collect coins.",
-    src: "/Pic_04",
+    src: "/Pic_04.png",
     link: "https://github.com/Deadworld-bit/EndlessRunner_Testing",
   },
   {
@@ -119,13 +124,7 @@ export const Projects = [
     link: "https://github.com/Deadworld-bit/IdleArcade_Testing",
   },
   {
-    title: "RestaurantManagement_App",
-    text: "This restaurant management app streamlines operations by handling reservations, order processing, inventory, and staff scheduling to boost efficiency and enhance customer service.",
-    src: "/SpaceWebsite.png",
-    link: "https://github.com/Deadworld-bit/QuanLyNhaHang_App",
-  },
-  {
-    title: "ChildGrowthTrackingSystem_FE", 
+    title: "ChildGrowthTrackingSystem_FE",
     text: "",
     src: "/Pic_06.png",
     link: "https://github.com/Deadworld-bit/childgrowthtrackingsystem_fe",
