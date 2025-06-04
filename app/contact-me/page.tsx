@@ -14,7 +14,7 @@ const raleway = Raleway({
 const contacts = [
   { icon: <Phone className="w-6 h-6" />, label: "Phone", value: "+84 977346713", href: "tel:+84977346713" },
   { icon: <Mail className="w-6 h-6" />, label: "Email", value: "phanthanhduc2709@gmail.com", href: "mailto:phanthanhduc2709@gmail.com" },
-  { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", value: "www.linkedin.com/in/thanhducdev", href: "www.linkedin.com/in/thanhducdev" },
+  { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", value: "https://www.linkedin.com/in/thanhducdev/", href: "https://www.linkedin.com/in/thanhducdev/" },
   { icon: <Github className="w-6 h-6" />, label: "GitHub", value: "https://github.com/Deadworld-bit", href: "https://github.com/Deadworld-bit" },
   { icon: <MessageCircle className="w-6 h-6" />, label: "Discord", value: "Deadworld#8732", href: "https://discordapp.com/users/Deadworld#8732" },
 ];
