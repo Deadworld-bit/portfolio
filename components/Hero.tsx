@@ -3,16 +3,15 @@
 import React from "react";
 import { Manrope } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
-import backgroundImage from "@/public/background_02.jpg";
+import backgroundImage from "@/public/background_04.jpg";
 
-// Use Manrope for a clean, modern, minimalist look
 const manrope = Manrope({ subsets: ["latin"], weight: ["800", "600"] });
 
 function useHeroScrollTransforms() {
   const { scrollY } = useScroll();
   return {
     bgY: useTransform(scrollY, [0, 600], [0, 300]),
-    headingY: useTransform(scrollY, [0, 400], [0, -150]),
+    headingY: useTransform(scrollY, [0, 400], [0, -100]),
     headingOpacity: useTransform(scrollY, [0, 300], [1, 0]),
     subOpacity: useTransform(scrollY, [100, 500], [1, 0]),
   };
@@ -21,28 +20,14 @@ function useHeroScrollTransforms() {
 function HeroOverlays() {
   return (
     <>
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, var(--color-charcoal) 0%, transparent 60%, var(--color-charcoal) 100%)",
-          opacity: 0.7,
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, var(--color-white) 0%, transparent 80%)",
-          opacity: 0.06,
-        }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/40 to-transparent z-0 pointer-events-none" />
     </>
   );
 }
 
 const HERO_TITLE = "Phan Thanh Duc";
-const HERO_SUBTITLE = "I'm a Game Developer";
+const HERO_SUBTITLE = "I'm a Developer";
 
 const Hero: React.FC = () => {
   const { bgY, headingY, headingOpacity, subOpacity } =
@@ -62,7 +47,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex flex-col items-center text-center px-4">
         <motion.h2
-          className={`${manrope.className} text-white text-xl md:text-3xl font-semibold mb-2 tracking-widest`}
+          className={`${manrope.className} text-white text-xl md:text-2xl font-semibold mb-3 tracking-widest drop-shadow-md`}
           style={{
             y: headingY,
             opacity: headingOpacity,
@@ -72,7 +57,7 @@ const Hero: React.FC = () => {
           Hello, I'm
         </motion.h2>
         <motion.h1
-          className={`${manrope.className} text-electric-blue text-5xl md:text-7xl font-extrabold mb-6 leading-tight`}
+          className={`${manrope.className} text-white text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.6)]`}
           style={{
             y: headingY,
             opacity: headingOpacity,
@@ -82,7 +67,7 @@ const Hero: React.FC = () => {
           {HERO_TITLE}
         </motion.h1>
         <motion.p
-          className={`${manrope.className} text-white text-lg md:text-2xl font-medium max-w-2xl border-l-4 border-neon-green pl-6 py-4 bg-charcoal/60 rounded-xl shadow-lg`}
+          className={`${manrope.className} text-white text-lg md:text-xl font-medium max-w-2xl border-l-4 border-neon-green pl-6 py-4 bg-black/50 rounded-xl shadow-xl backdrop-blur-sm`}
           style={{
             opacity: subOpacity,
           }}
