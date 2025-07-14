@@ -12,7 +12,6 @@ export default function ProjectsPage() {
   const [selectedType, setSelectedType] = useState("All");
 
   const projectTypes = useMemo(() => {
-    // Flatten all project types into a single array, then get unique types
     const types = new Set<string>();
     Projects.forEach((project) => {
       project.type.forEach((t) => types.add(t));
@@ -24,7 +23,6 @@ export default function ProjectsPage() {
     if (selectedType === "All") {
       return Projects;
     }
-    // Filter projects where ANY of their types match the selectedType
     return Projects.filter((project) => project.type.includes(selectedType));
   }, [selectedType]);
 
@@ -44,29 +42,27 @@ export default function ProjectsPage() {
     setCurrentPage(1);
   };
 
-  // Helper to format dates (e.g., "YYYY-MM" to "Mon YYYY")
   const formatDate = (dateString: string) => {
-    if (!dateString) return ''; // Handle cases where date might be empty
+    if (!dateString) return '';
     const [year, month] = dateString.split('-');
-    // Use Intl.DateTimeFormat for more robust formatting if needed
     try {
-      const date = new Date(parseInt(year), parseInt(month) - 1); // Month is 0-indexed
+      const date = new Date(parseInt(year), parseInt(month) - 1);
       return date.toLocaleString('en-US', { month: 'short', year: 'numeric' });
     } catch (error) {
       console.error("Error formatting date:", dateString, error);
-      return dateString; // Return original if parsing fails
+      return dateString;
     }
   };
 
   return (
-    <div className="relative min-h-screen bg-gray-900 overflow-hidden">
-      {/* Background Image */}
+    <div className="relative min-h-screen overflow-hidden">
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center opacity-10"
-        style={{ backgroundImage: "url('background_03.jpg')" }} 
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('background_06.jpg')" }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-4 py-12">
+      {/* Content layer with semi-transparent backdrop */}
+      <div className="relative z-10 container mx-auto px-4 py-12 backdrop-brightness-100">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,8 +85,8 @@ export default function ProjectsPage() {
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300
                 ${
                   selectedType === type
-                    ? "bg-yellow-500 text-gray-900 shadow-lg"
-                    : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-yellow-400"
+                    ? "bg-chill-teal text-night-navy shadow-lg"
+                    : "bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal"
                 }`}
             >
               {type}
@@ -102,15 +98,15 @@ export default function ProjectsPage() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center text-gray-400 text-lg mt-8"
+            className="text-center text-lavender-mist text-lg mt-8"
           >
             No projects found for this type.
           </motion.p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-8">
-            {currentProjects.map((project, index) => ( 
+            {currentProjects.map((project, index) => (
               <motion.a
-                key={project.title || index} 
+                key={project.title || index}
                 href={project.gitLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -118,7 +114,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(0,0,0,0.4)" }}
-                className="bg-gray-900 rounded-xl overflow-hidden shadow-xl border border-gray-800 flex flex-col cursor-pointer relative"
+                className="bg-deep-slate bg-opacity-60 rounded-xl overflow-hidden shadow-xl border border-night-navy flex flex-col cursor-pointer relative"
               >
                 <div className="relative w-full h-48 sm:h-56 overflow-hidden">
                   <img
@@ -126,12 +122,11 @@ export default function ProjectsPage() {
                     alt={project.title}
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                   />
-                  {/* Display multiple types */}
-                  <div className="absolute top-3 left-3 flex flex-wrap gap-1"> {/* Changed to div for multiple spans */}
+                  <div className="absolute top-3 left-3 flex flex-wrap gap-1">
                     {project.type.map((t, idx) => (
                       <span
-                        key={idx} // Using index as key for type tags within a project
-                        className="bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full uppercase"
+                        key={idx}
+                        className="bg-chill-teal text-night-navy text-xs font-bold px-3 py-1 rounded-full uppercase"
                       >
                         {t}
                       </span>
@@ -139,25 +134,24 @@ export default function ProjectsPage() {
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-gray-100 mb-3 leading-tight">
+                  <h3 className="text-2xl font-bold text-soft-cyan mb-3 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4 flex-grow">
+                  <p className="text-white text-sm mb-4 flex-grow">
                     {project.shortDescription}
                   </p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-full"
+                        className="bg-night-navy bg-opacity-70 text-soft-cyan text-xs px-3 py-1 rounded-full"
                       >
                         {skill}
                       </span>
                     ))}
                   </div>
                 </div>
-                {/* Start and End Dates */}
-                <div className="absolute bottom-3 right-3 bg-gray-700 text-gray-300 text-xs px-3 py-1 rounded-md flex items-center space-x-1">
+                <div className="absolute bottom-3 right-3 bg-night-navy bg-opacity-70 text-soft-cyan text-xs px-3 py-1 rounded-md flex items-center space-x-1">
                   <span className="font-medium">
                     {formatDate(project.startDate)}
                   </span>
@@ -178,7 +172,7 @@ export default function ProjectsPage() {
               disabled={currentPage === 1}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-5 py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-5 py-2 rounded-lg bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Previous
             </motion.button>
@@ -191,19 +185,19 @@ export default function ProjectsPage() {
                 className={`w-10 h-10 rounded-lg font-semibold transition-colors
                   ${
                     currentPage === number
-                      ? "bg-yellow-500 text-gray-900 shadow-md"
-                      : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-yellow-400"
+                      ? "bg-chill-teal text-night-navy shadow-md"
+                      : "bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal"
                   }`}
-            >
-              {number}
-            </motion.button>
-          ))}
+              >
+                {number}
+              </motion.button>
+            ))}
             <motion.button
               onClick={() => paginate(currentPage + 1)}
               disabled={currentPage === totalPages}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-5 py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="px-5 py-2 rounded-lg bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Next
             </motion.button>

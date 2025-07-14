@@ -1,33 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --color-black:         #000000;
-  --color-white:         #FFFFFF;
-  --color-charcoal:      #1A1A1A;
-  --color-slate:         #4D4D4D;
-  --color-electric-blue: #00BFFF;
-  --color-neon-green:    #39FF14;
+  --color-night-navy:   #0F1C2C;
+  --color-deep-slate:   #1E2A38;
+  --color-chill-teal:   #3FBDB0;
+  --color-soft-cyan:    #7FD3F6;
+  --color-lavender-mist:#C1C8E4;
 }
 
 @layer utilities {
-  .text-black         { color: var(--color-black) !important; }
-  .text-white         { color: var(--color-white) !important; }
-  .text-charcoal      { color: var(--color-charcoal) !important; }
-  .text-slate         { color: var(--color-slate) !important; }
-  .text-electric-blue { color: var(--color-electric-blue) !important; }
-  .text-neon-green    { color: var(--color-neon-green) !important; }
+  /* text colors */
+  .text-night-navy      { color: var(--color-night-navy) !important; }
+  .text-deep-slate      { color: var(--color-deep-slate) !important; }
+  .text-chill-teal      { color: var(--color-chill-teal) !important; }
+  .text-soft-cyan       { color: var(--color-soft-cyan) !important; }
+  .text-lavender-mist   { color: var(--color-lavender-mist) !important; }
 
-  .bg-black         { background-color: var(--color-black) !important; }
-  .bg-white         { background-color: var(--color-white) !important; }
-  .bg-charcoal      { background-color: var(--color-charcoal) !important; }
-  .bg-slate         { background-color: var(--color-slate) !important; }
-  .bg-electric-blue { background-color: var(--color-electric-blue) !important; }
-  .bg-neon-green    { background-color: var(--color-neon-green) !important; }
+  /* background colors */
+  .bg-night-navy        { background-color: var(--color-night-navy) !important; }
+  .bg-deep-slate        { background-color: var(--color-deep-slate) !important; }
+  .bg-chill-teal        { background-color: var(--color-chill-teal) !important; }
+  .bg-soft-cyan         { background-color: var(--color-soft-cyan) !important; }
+  .bg-lavender-mist     { background-color: var(--color-lavender-mist) !important; }
 
-  .stroke-black         { stroke: var(--color-black) !important; }
-  .stroke-white         { stroke: var(--color-white) !important; }
-  .stroke-charcoal      { stroke: var(--color-charcoal) !important; }
-  .stroke-slate         { stroke: var(--color-slate) !important; }
-  .stroke-electric-blue { stroke: var(--color-electric-blue) !important; }
-  .stroke-neon-green    { stroke: var(--color-neon-green) !important; }
+  /* borders & strokes */
+  .border-night-navy    { border-color: var(--color-night-navy) !important; }
+  .border-deep-slate    { border-color: var(--color-deep-slate) !important; }
+  .border-chill-teal    { border-color: var(--color-chill-teal) !important; }
+  .border-soft-cyan     { border-color: var(--color-soft-cyan) !important; }
+  .border-lavender-mist { border-color: var(--color-lavender-mist) !important; }
 }

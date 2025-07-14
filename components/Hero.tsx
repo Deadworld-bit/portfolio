@@ -3,7 +3,7 @@
 import React from "react";
 import { Manrope } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
-import backgroundImage from "@/public/background_04.jpg";
+import backgroundImage from "@/public/background_05.png";
 
 const manrope = Manrope({ subsets: ["latin"], weight: ["800", "600"] });
 
@@ -20,8 +20,8 @@ function useHeroScrollTransforms() {
 function HeroOverlays() {
   return (
     <>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80 z-0 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/40 to-transparent z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-night-navy/80 via-transparent to-night-navy/90 z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-deep-slate/60 to-transparent z-0 pointer-events-none" />
     </>
   );
 }
@@ -45,29 +45,31 @@ const Hero: React.FC = () => {
     >
       <HeroOverlays />
 
-      <div className="relative z-10 flex flex-col items-center text-center px-4">
+      <div className="relative z-10 flex flex-col items-center text-center px-8 lg:px-20">
         <motion.h2
-          className={`${manrope.className} text-white text-xl md:text-2xl font-semibold mb-3 tracking-widest drop-shadow-md`}
+          className={`${manrope.className} text-soft-cyan text-2xl md:text-3xl font-semibold mb-4 tracking-widest drop-shadow-md`}
           style={{
             y: headingY,
             opacity: headingOpacity,
-            letterSpacing: "0.18em",
+            letterSpacing: "0.2em",
           }}
         >
           Hello, I'm
         </motion.h2>
+
         <motion.h1
-          className={`${manrope.className} text-white text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-[0_0_10px_rgba(0,255,255,0.6)]`}
+          className={`${manrope.className} text-night-navy text-7xl md:text-8xl font-extrabold mb-8 leading-tight drop-shadow-[0_0_15px_rgba(63,189,176,0.5)]`}
           style={{
             y: headingY,
             opacity: headingOpacity,
-            letterSpacing: "0.04em",
+            letterSpacing: "0.05em",
           }}
         >
           {HERO_TITLE}
         </motion.h1>
+
         <motion.p
-          className={`${manrope.className} text-white text-lg md:text-xl font-medium max-w-2xl border-l-4 border-neon-green pl-6 py-4 bg-black/50 rounded-xl shadow-xl backdrop-blur-sm`}
+          className={`${manrope.className} text-night-navy text-xl md:text-2xl font-medium inline-block bg-night-navy/70 border-l-4 border-chill-teal px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md`}
           style={{
             opacity: subOpacity,
           }}

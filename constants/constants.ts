@@ -1,5 +1,3 @@
-// constants/constants.ts
-
 export interface Project {
   title: string;
   type: string[]; 
@@ -12,6 +10,16 @@ export interface Project {
 }
 
 export const Projects: Project[] = [
+  {
+    title: "Glyph",
+    type: ["Game", "Unity"],
+    shortDescription: "Glyph is a 2D platformer game where players control a character that can you letters to interact with the environment, solve puzzles, and defeat enemies.",
+    skills: ["Unity", "C#", "Game Development", "Moble"],
+    image: "/projects/TrinetraSudio_pic_01.png",
+    gitLink: "https://github.com/san0502-jay/Glyph-Trinetra-Games.git",
+    startDate: "2025-06",
+    endDate: ""
+  },
   {
     title: "TRINETRA Studio Website",
     type: ["Web Design", "Frontend"],
@@ -37,7 +45,7 @@ export const Projects: Project[] = [
     type: ["Web Design", "Frontend"], 
     shortDescription: "A web-based application offering easy onboarding, member growth analytics, doctor evaluation tools, and an admin dashboard for full system management.",
     skills: ["Next.js", "Tailwind.css", "Framer Motion", "JavaScript"],
-    image: "/project-smarthome.jpg",
+    image: "/projects/ChildGrowthTrackingSystem_pic_01.png",
     gitLink: "https://github.com/Deadworld-bit/childgrowthtrackingsystem_fe.git",
     startDate: "2025-02",
     endDate: "2025-3"
@@ -47,49 +55,49 @@ export const Projects: Project[] = [
     type: ["Game", "Unity"],
     shortDescription: "A Unity turn-based strategy prototype featuring a grid-based action point system, pathfinding, and AI-driven enemy behavior.",
     skills: ["Unity", "C#", "Game Development", "Game Mechanics", "Prototyping"],
-    image: "/project-portfolio.jpg",
+    image: "/projects/TurnBase_pic_01.png",
     gitLink: "https://github.com/Deadworld-bit/TurnBasedStrategy_Testing.git",
-    startDate: "2023-05",
-    endDate: "2023-06"
+    startDate: "2024-02",
+    endDate: "2024-12"
   },
   {
-    title: "E-commerce Backend API",
-    type: ["Backend Development", "API", "Database"], // <--- EXAMPLE CHANGE
-    shortDescription: "Robust backend API for an e-commerce platform with authentication and product management.",
-    skills: ["Node.js", "Express", "MongoDB", "JWT"],
-    image: "/project-ecommerce-api.jpg",
-    gitLink: "https://github.com/yourusername/ecommerce-api",
-    startDate: "2023-01",
-    endDate: "2023-04"
+    title: "IdleArcade_Testing",
+    type: ["Game", "Unity"], 
+    shortDescription: "IdleArcade_Testing is an idle town management arcade game prototype where you gather resources, upgrade and expand your settlement, boost production, and fortify defenses against enemy attacks.",
+    skills: ["Unity", "C#", "Game Mechanics", "Prototyping"],
+    image: "/projects/IdleArcade_pic_01.png",
+    gitLink: "https://github.com/Deadworld-bit/IdleArcade_Testing.git",
+    startDate: "2024-08",
+    endDate: "2024-09"
   },
   {
-    title: "Procedural Terrain Generator",
-    type: ["Game Development", "Graphics", "Simulation"], // <--- EXAMPLE CHANGE
-    shortDescription: "A Unity project demonstrating procedural terrain generation algorithms.",
-    skills: ["Unity", "C#", "Shader Graph"],
-    image: "/project-terrain.jpg",
-    gitLink: "https://github.com/yourusername/procedural-terrain-generator",
-    startDate: "2022-09",
-    endDate: "2022-12"
+    title: "Workshop management system for Jama Decor furniture company",
+    type: ["Backend", "Database"],
+    shortDescription: "BWM, is a purpose-built application tailored to efficiently manage the intricacies of Jama decor factory. This versatile tool oversees customer orders, tracks items and materials, assigns and monitors worker tasks, and generates insightful reports. ​",
+    skills: ["C#", "Entity Framework", "ASP.NET Core", "SQL Server", "Web API", "SignalR"],
+    image: "/projects/JamaManagementSystem_pic_01.png",
+    gitLink: "https://github.com/QuanggDat/BWM_BuildWorkshopManagement_Backend.git",
+    startDate: "2023-07",
+    endDate: "2023-12"
   },
   {
-    title: "TaskFlow Mobile App",
-    type: ["Mobile Application", "Productivity", "Frontend"], // <--- EXAMPLE CHANGE
-    shortDescription: "A productivity mobile app to manage tasks and set reminders.",
-    skills: ["React Native", "Firebase", "Redux"],
-    image: "/project-taskflow.jpg",
-    gitLink: "https://github.com/yourusername/taskflow-mobile-app",
-    startDate: "2022-04",
-    endDate: "2022-08"
+    title: "Parkour_Testing",
+    type: ["Game", "Unity"], 
+    shortDescription: "Parkour_Testing is a dynamic parkour game prototype with an advanced obstacle-detection system that automatically rotates your character and adapts actions—jumps, vaults, climbs, and ledge maneuvers—based on obstacle height.",
+    skills: ["Unity", "C#", "Game Mechanics", "Prototyping"],
+    image: "/projects/Parkour_pic_01.png",
+    gitLink: "https://github.com/Deadworld-bit/Parkour_Testing.git",
+    startDate: "2024-05",
+    endDate: "2024-08"
   },
   {
-    title: "Celestial Navigator",
-    type: ["Web Application", "Data Visualization", "Astronomy"], // <--- EXAMPLE CHANGE
-    shortDescription: "An interactive web app for exploring constellations and celestial objects.",
-    skills: ["React", "TypeScript", "D3.js", "Node.js"],
-    image: "/project-celestial.jpg",
-    gitLink: "https://github.com/yourusername/celestial-navigator",
-    startDate: "2022-01",
-    endDate: "2022-03"
+    title: "EndlessRunner_Testing",
+    type: ["Game", "Unity"], 
+    shortDescription: "EndlessRunner_Testing is an endless runner game prototype where players overcome obstacles and collect coins.",
+    skills: ["Unity", "C#", "Game Mechanics", "Prototyping"],
+    image: "/projects/EndlessRunner_pic_01.png",
+    gitLink: "https://github.com/Deadworld-bit/EndlessRunner_Testing.git",
+    startDate: "2023-06",
+    endDate: "2023-07"
   }
 ];
