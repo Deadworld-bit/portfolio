@@ -49,14 +49,12 @@ const FilterBar: FC<{
     initial={{ opacity: 0, y: -20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.2, duration: 0.5 }}
-    // Responsive margin and gap
     className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12"
   >
     {types.map((type) => (
       <button
         key={type}
         onClick={() => onSelect(type)}
-        // Responsive padding and text size
         className={`px-6 py-2 md:px-8 md:py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300
           ${
             selected === type
@@ -82,7 +80,6 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
     whileHover={{ scale: 1.02, boxShadow: "0 12px 24px rgba(0,0,0,0.4)" }}
     className="bg-deep-slate bg-opacity-60 rounded-2xl overflow-hidden shadow-2xl border-2 border-night-navy flex flex-col cursor-pointer relative"
   >
-    {/* Responsive height for the image container */}
     <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden">
       <img
         src={project.image}
@@ -93,7 +90,6 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
         {project.type.map((t, idx) => (
           <span
             key={idx}
-            // Responsive padding and text size for type tags
             className="bg-chill-teal text-night-navy text-xs md:text-sm font-bold px-3 py-1 md:px-4 md:py-2 rounded-full uppercase"
           >
             {t}
@@ -106,9 +102,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
         <span className="font-medium">{formatDate(project.endDate)}</span>
       </div>
     </div>
-    {/* Responsive padding for card content */}
     <div className="p-5 md:p-8 flex flex-col flex-grow">
-      {/* Responsive font size for the title */}
       <h3 className="text-2xl md:text-3xl font-bold text-soft-cyan mb-3 md:mb-4 leading-tight">
         {project.title}
       </h3>
@@ -119,7 +113,6 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
         {project.skills.map((skill) => (
           <span
             key={skill}
-            // Responsive padding and text size for skill tags
             className="bg-night-navy bg-opacity-70 text-soft-cyan text-xs md:text-sm px-3 py-1.5 rounded-full"
           >
             {skill}
@@ -130,20 +123,18 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
   </motion.a>
 );
 
-// Pagination controls - **HEAVILY REVISED FOR RESPONSIVENESS**
+// Pagination controls 
 const Pagination: FC<{
   total: number;
   current: number;
   onPage: (num: number) => void;
 }> = ({ total, current, onPage }) => (
-  // Responsive margin and gap
   <div className="flex justify-center items-center gap-2 md:gap-4 mt-12 md:mt-16">
     <motion.button
       onClick={() => onPage(current - 1)}
       disabled={current === 1}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      // Responsive padding
       className="px-4 py-2 md:px-6 md:py-3 rounded-lg bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
     >
       Prev
@@ -179,7 +170,6 @@ const Pagination: FC<{
       disabled={current === total}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      // Responsive padding
       className="px-4 py-2 md:px-6 md:py-3 rounded-lg bg-black bg-opacity-60 text-white hover:bg-opacity-80 hover:text-chill-teal disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
     >
       Next
@@ -208,15 +198,13 @@ export default function ProjectsPage() {
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('background_06.jpg')" }}
+        style={{ backgroundImage: "url('background_08.png')" }}
       />
-      {/* Responsive padding and max-width for the main container */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 md:py-16 backdrop-brightness-100">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          // Responsive font size and margin
           className="font-['Press_Start_2P',_monospace] text-3xl md:text-4xl lg:text-6xl text-white text-center mb-8 md:mb-16 tracking-tighter"
         >
           Showcase Projects
@@ -240,7 +228,6 @@ export default function ProjectsPage() {
             No projects found
           </motion.p>
         ) : (
-          // Responsive grid gaps
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {current.map((pr) => (
               <ProjectCard key={pr.title} project={pr} />

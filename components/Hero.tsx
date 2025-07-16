@@ -3,7 +3,7 @@
 import React from "react";
 import { Manrope } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
-import backgroundImage from "@/public/background_05.png";
+import backgroundImage from "@/public/background_09.png";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
         </motion.h2>
 
         <motion.h1
-          className="text-night-navy text-7xl md:text-8xl font-extrabold mb-8 leading-tight drop-shadow-[0_0_15px_rgba(63,189,176,0.5)]"
+          className="text-white text-7xl md:text-8xl font-extrabold mb-8 leading-tight drop-shadow-[0_0_15px_rgba(63,189,176,0.5)]"
           style={{
             y: headingY,
             opacity: headingOpacity,
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         </motion.h1>
 
         <motion.p
-          className="text-black text-xl md:text-2xl font-medium inline-block bg-night-navy/70 border-l-4 border-chill-teal px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md"
+          className="text-white text-xl md:text-2xl font-medium inline-block bg-night-navy/70 border-l-4 border-chill-teal px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md"
           style={{ opacity: subOpacity }}
         >
           {HERO_SUBTITLE}

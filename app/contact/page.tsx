@@ -6,7 +6,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { FaPhoneAlt, FaPaperPlane, FaMapMarkerAlt } from "react-icons/fa";
 import { motion, Variants } from "framer-motion";
 import { Orbitron } from "next/font/google";
-import backgroundImage from "@/public/background_01.jpg"; 
+import backgroundImage from "@/public/background_07.png";
 
 // --- Type Definitions ---
 interface FormState {
@@ -14,7 +14,7 @@ interface FormState {
   email: string;
   subject: string;
   content: string;
-  honeypot: string; // For spam prevention
+  honeypot: string;
 }
 
 interface ContactFormProps {
@@ -34,14 +34,13 @@ const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
 
 // --- Styles ---
 const styles = {
-  // Updated input and textarea for the new design
-  input: `w-full bg-charcoal border border-charcoal rounded-md px-4 py-3 text-white placeholder-slate
-          focus:outline-none focus:border-neon-green transition duration-300 ease-in-out text-base`,
-  textarea: `w-full bg-charcoal border border-charcoal rounded-md px-4 py-3 text-white placeholder-slate
-            focus:outline-none focus:border-neon-green transition duration-300 ease-in-out resize-none text-base`,
-  button: `w-full mt-8 px-8 py-3 bg-neon-green hover:bg-neon-green text-black
+  input: `w-full bg-night-navy border border-deep-slate rounded-md px-4 py-3 text-soft-cyan placeholder-lavender-mist
+          focus:outline-none focus:border-chill-teal transition duration-300 ease-in-out text-base`,
+  textarea: `w-full bg-night-navy border border-deep-slate rounded-md px-4 py-3 text-soft-cyan placeholder-lavender-mist
+            focus:outline-none focus:border-chill-teal transition duration-300 ease-in-out resize-none text-base`,
+  button: `w-full mt-8 px-8 py-3 bg-chill-teal hover:bg-soft-cyan text-night-navy
            font-bold text-lg rounded-md shadow-md transition-all duration-300 ease-in-out
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-neon-green disabled:hover:text-black`,
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-chill-teal disabled:hover:text-night-navy`,
   hiddenField: "hidden",
 };
 
@@ -92,39 +91,35 @@ function useAutoClear(
 const CONTACT_INFO = [
   {
     Icon: FaPhoneAlt,
-    title: "Call Me", // Changed title as per image
-    lines: ["201-354-4443", "201-354-4443"], // Updated numbers as per image
+    title: "Call Me", 
+    lines: ["0977346713"],
   },
   {
     Icon: FaPaperPlane,
     title: "E-mail",
-    lines: ["contact@gsmith.com", "info@gsmith.com"],
+    lines: ["phanthanhduc2709@gmail.com", "deadworld128@gmail.com"],
   },
   {
     Icon: FaMapMarkerAlt,
     title: "Location",
-    lines: ["474 Central Road", "New York"], // Updated location as per image
+    lines: ["Vinhome GrandPark", "Ho Chi Minh City, Vietnam"], 
   },
 ];
 
 const ContactInfoPanel: FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full">
-      {" "}
       {CONTACT_INFO.map(({ Icon, title, lines }) => (
         <motion.div
           key={title}
           variants={fadeSlideUp}
-          className="bg-charcoal p-6 rounded-md flex items-center space-x-4 md:space-x-6 text-left" 
+          className="bg-deep-slate p-6 rounded-md flex items-center space-x-4 md:space-x-6 text-left"
         >
-          <div className="bg-slate rounded-full p-4 flex-shrink-0">
-            {" "}
-            {/* Added flex-shrink-0 */}
-            <Icon className="text-white text-2xl" />
+          <div className="bg-chill-teal rounded-full p-4 flex-shrink-0">
+            <Icon className="text-night-navy text-2xl" />
           </div>
           <div>
-            {" "}
-            <h4 className="font-bold text-white text-lg mb-1">{title}</h4>{" "}
+            <h4 className="font-bold text-white text-lg mb-1">{title}</h4>
             <div className="font-sans text-white text-sm space-y-1">
               {lines.map((line, i) => (
                 <div key={i}>{line}</div>
@@ -152,9 +147,8 @@ const ContactForm: FC<ContactFormProps> = ({
   return (
     <motion.div
       variants={fadeSlideUp}
-      className="bg-charcoal p-8 rounded-md w-full max-w-3xl mx-auto"
+      className="bg-deep-slate p-8 rounded-md w-full max-w-3xl mx-auto"
     >
-      {" "}
       <h3
         className={`${orbitron.className} text-3xl md:text-4xl font-extrabold mb-8 text-white text-center`}
       >
@@ -178,12 +172,12 @@ const ContactForm: FC<ContactFormProps> = ({
               value={form.email}
               onChange={onChange}
               className={`${styles.input} ${
-                form.email && !isEmailValid ? "border-electric-blue" : ""
+                form.email && !isEmailValid ? "border-chill-teal" : ""
               }`}
               required
             />
             {form.email && !isEmailValid && (
-              <span className="mt-2 text-sm text-electric-blue pl-2">
+              <span className="mt-2 text-sm text-chill-teal pl-2">
                 Please enter a valid email.
               </span>
             )}
@@ -236,14 +230,14 @@ const ContactForm: FC<ContactFormProps> = ({
             role="alert"
             className={`mt-4 flex items-center space-x-3 rounded-lg px-5 py-4 ${
               isSuccess
-                ? "bg-neon-green text-black" 
-                : "bg-electric-blue text-white" 
+                ? "bg-chill-teal text-night-navy"
+                : "bg-soft-cyan text-night-navy"
             }`}
           >
             {isSuccess ? (
-              <CheckCircleIcon className="w-6 h-6 text-black" /> // Icon is black on neon green
+              <CheckCircleIcon className="w-6 h-6 text-night-navy" />
             ) : (
-              <XCircleIcon className="w-6 h-6 text-white" /> // Icon is white on electric blue
+              <XCircleIcon className="w-6 h-6 text-night-navy" />
             )}
             <span className="text-base">{message}</span>
           </div>
@@ -330,7 +324,7 @@ const Contact: FC = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-black text-white"
+      className="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-night-navy text-soft-cyan"
     >
       {/* Background Image Overlay */}
       <div

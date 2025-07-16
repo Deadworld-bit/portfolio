@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import {
   FaHome,
   FaUser,
-  FaFileAlt,
-  FaTools,
   FaEnvelope,
   FaLinkedinIn,
   FaTwitter,
@@ -15,12 +13,10 @@ import {
   FaDiscord,
 } from "react-icons/fa";
 import { RiCodeSSlashFill } from "react-icons/ri";
-import { FaG } from "react-icons/fa6";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: <FaHome /> },
   { label: "About", href: "/about-me", icon: <FaUser /> },
-  { label: "Skills", href: "/resume", icon: <FaFileAlt /> },
   { label: "Projects", href: "/project", icon: <RiCodeSSlashFill /> },
   { label: "Contact", href: "/contact", icon: <FaEnvelope /> },
 ];
@@ -49,11 +45,10 @@ export default function Sidebar() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="flex flex-col items-start mb-16"
         >
-          <img src="/logo.png" alt="Bauen" className="h-10 w-auto mb-2 opacity-90" />
           <span className="text-gray-200 text-2xl font-semibold tracking-wide">
             Phan Thanh Duc
           </span>
-          <span className="text-gray-500 text-base mt-1">Web Developer</span>
+          <span className="text-gray-500 text-base mt-1">Developer</span>
         </motion.div>
 
         <nav aria-label="Main navigation">
