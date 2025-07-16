@@ -5,7 +5,10 @@ import { Manrope } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
 import backgroundImage from "@/public/background_05.png";
 
-const manrope = Manrope({ subsets: ["latin"], weight: ["800", "600"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "600"],
+});
 
 function useHeroScrollTransforms() {
   const { scrollY } = useScroll();
@@ -30,12 +33,11 @@ const HERO_TITLE = "Phan Thanh Duc";
 const HERO_SUBTITLE = "I'm a Developer";
 
 const Hero: React.FC = () => {
-  const { bgY, headingY, headingOpacity, subOpacity } =
-    useHeroScrollTransforms();
+  const { bgY, headingY, headingOpacity, subOpacity } = useHeroScrollTransforms();
 
   return (
     <motion.section
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden"
+      className={`${manrope.className} relative w-full h-screen flex items-center justify-center overflow-hidden`}
       style={{
         backgroundImage: `url(${backgroundImage.src})`,
         backgroundSize: "cover",
@@ -47,7 +49,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 flex flex-col items-center text-center px-8 lg:px-20">
         <motion.h2
-          className={`${manrope.className} text-soft-cyan text-2xl md:text-3xl font-semibold mb-4 tracking-widest drop-shadow-md`}
+          className="text-white text-2xl md:text-3xl font-semibold mb-4 tracking-widest drop-shadow-md"
           style={{
             y: headingY,
             opacity: headingOpacity,
@@ -58,7 +60,7 @@ const Hero: React.FC = () => {
         </motion.h2>
 
         <motion.h1
-          className={`${manrope.className} text-night-navy text-7xl md:text-8xl font-extrabold mb-8 leading-tight drop-shadow-[0_0_15px_rgba(63,189,176,0.5)]`}
+          className="text-night-navy text-7xl md:text-8xl font-extrabold mb-8 leading-tight drop-shadow-[0_0_15px_rgba(63,189,176,0.5)]"
           style={{
             y: headingY,
             opacity: headingOpacity,
@@ -69,10 +71,8 @@ const Hero: React.FC = () => {
         </motion.h1>
 
         <motion.p
-          className={`${manrope.className} text-night-navy text-xl md:text-2xl font-medium inline-block bg-night-navy/70 border-l-4 border-chill-teal px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md`}
-          style={{
-            opacity: subOpacity,
-          }}
+          className="text-black text-xl md:text-2xl font-medium inline-block bg-night-navy/70 border-l-4 border-chill-teal px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-md"
+          style={{ opacity: subOpacity }}
         >
           {HERO_SUBTITLE}
         </motion.p>
