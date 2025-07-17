@@ -3,7 +3,7 @@
 import React from "react";
 import { Manrope } from "next/font/google";
 import { motion, useScroll, useTransform } from "framer-motion";
-import backgroundImage from "@/public/background_09.png";
+import backgroundImage from "@/public/background_11.png";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
 
   return (
     <motion.section
-      className={`${manrope.className} relative w-full h-screen flex items-center justify-center overflow-hidden`}
+      className={`${manrope.className} relative w-full h-screen flex items-center justify-center overflow-x-hidden bg-night-navy`}
       style={{
         backgroundImage: `url(${backgroundImage.src})`,
         backgroundSize: "cover",

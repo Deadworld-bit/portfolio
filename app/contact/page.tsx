@@ -8,7 +8,9 @@ import { motion, Variants } from "framer-motion";
 import { Orbitron } from "next/font/google";
 import backgroundImage from "@/public/background_07.png";
 
-// --- Type Definitions ---
+const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
+
+// Type Definitions
 interface FormState {
   fullName: string;
   email: string;
@@ -29,10 +31,11 @@ interface ContactFormProps {
   isSuccess: boolean;
 }
 
-// --- Font ---
-const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
+// Constants
+const COOLDOWN_SECONDS: number = 30;
+const EMAIL_REGEX: RegExp = /^\S+@\S+\.\S+$/;
 
-// --- Styles ---
+// Styles
 const styles = {
   input: `w-full bg-night-navy border border-deep-slate rounded-md px-4 py-3 text-soft-cyan placeholder-lavender-mist
           focus:outline-none focus:border-chill-teal transition duration-300 ease-in-out text-base`,
@@ -44,11 +47,7 @@ const styles = {
   hiddenField: "hidden",
 };
 
-// --- Constants ---
-const COOLDOWN_SECONDS: number = 30;
-const EMAIL_REGEX: RegExp = /^\S+@\S+\.\S+$/;
-
-// --- Animation Variants ---
+// Animation Variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -62,7 +61,7 @@ const fadeSlideUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// --- Custom Hooks ---
+// Custom Hooks
 function useCooldownTimer(
   initial: number = 0
 ): [number, React.Dispatch<React.SetStateAction<number>>] {
@@ -87,7 +86,7 @@ function useAutoClear(
   return [msg, setMsg];
 }
 
-// --- REDESIGNED: Contact Info Panel ---
+// Contact Info Panel
 const CONTACT_INFO = [
   {
     Icon: FaPhoneAlt,
@@ -132,7 +131,7 @@ const ContactInfoPanel: FC = () => {
   );
 };
 
-// --- Contact Form ---
+// Contact Form
 const ContactForm: FC<ContactFormProps> = ({
   form,
   onChange,
@@ -247,7 +246,6 @@ const ContactForm: FC<ContactFormProps> = ({
   );
 };
 
-// --- Main Exported Component ---
 const Contact: FC = () => {
   const [form, setForm] = useState<FormState>({
     fullName: "",
@@ -326,7 +324,6 @@ const Contact: FC = () => {
       viewport={{ once: true, amount: 0.2 }}
       className="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-night-navy text-soft-cyan"
     >
-      {/* Background Image Overlay */}
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -347,7 +344,7 @@ const Contact: FC = () => {
           Contact Me
         </h2>
 
-        {/* Contact Info Panel (now above the form) */}
+        {/* Contact Info Panel */}
         <ContactInfoPanel />
 
         {/* Contact Form */}

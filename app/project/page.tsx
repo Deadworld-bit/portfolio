@@ -9,13 +9,12 @@ const manrope = Manrope({ subsets: ["latin"], weight: ["400", "700"] });
 
 const PROJECTS_PER_PAGE = 4;
 
-// Utility: parse "YYYY-MM" into Date
+// Date Format
 const parseYearMonth = (ym: string) => {
   const [year, month] = ym.split("-");
   return new Date(parseInt(year), parseInt(month) - 1);
 };
 
-// Utility: format date or show in-progress
 const formatDate = (dateString: string) =>
   dateString
     ? parseYearMonth(dateString).toLocaleString("en-US", {
@@ -24,7 +23,7 @@ const formatDate = (dateString: string) =>
       })
     : "In-Progress";
 
-// Custom hook: filter and sort projects
+// Custom hook
 const useProjectList = (filterType: string) =>
   useMemo(() => {
     const list =
@@ -68,7 +67,7 @@ const FilterBar: FC<{
   </motion.div>
 );
 
-// Single project card
+// Project card
 const ProjectCard: FC<{ project: Project }> = ({ project }) => (
   <motion.a
     href={project.gitLink}
@@ -123,7 +122,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
   </motion.a>
 );
 
-// Pagination controls 
+// Pagination controls
 const Pagination: FC<{
   total: number;
   current: number;
@@ -194,12 +193,13 @@ export default function ProjectsPage() {
 
   return (
     <div
-      className={`${manrope.className} relative min-h-screen overflow-x-hidden bg-night-navy`}
+      className={`${manrope.className} relative min-h-screen overflow-x-hidden bg-black/20`}
     >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: "url('background_08.png')" }}
       />
+      <div className="absolute inset-0 bg-black/30 z-10" />
       <div className="relative z-10 container mx-auto px-4 sm:px-6 py-12 md:py-16 backdrop-brightness-100">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
