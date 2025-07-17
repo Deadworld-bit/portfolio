@@ -90,7 +90,7 @@ function useAutoClear(
 const CONTACT_INFO = [
   {
     Icon: FaPhoneAlt,
-    title: "Call Me", 
+    title: "Call Me",
     lines: ["0977346713"],
   },
   {
@@ -101,7 +101,7 @@ const CONTACT_INFO = [
   {
     Icon: FaMapMarkerAlt,
     title: "Location",
-    lines: ["Vinhome GrandPark", "Ho Chi Minh City, Vietnam"], 
+    lines: ["Vinhome GrandPark", "Ho Chi Minh City, Vietnam"],
   },
 ];
 
@@ -142,6 +142,12 @@ const ContactForm: FC<ContactFormProps> = ({
   isSuccess,
 }) => {
   const isEmailValid = EMAIL_REGEX.test(form.email);
+  const isFormValid =
+    form.fullName.trim() !== "" &&
+    form.email.trim() !== "" &&
+    form.subject.trim() !== "" &&
+    form.content.trim() !== "" &&
+    isEmailValid;
 
   return (
     <motion.div
@@ -162,6 +168,7 @@ const ContactForm: FC<ContactFormProps> = ({
             onChange={onChange}
             className={styles.input}
             required
+            aria-label="Full Name"
           />
           <div className="flex flex-col">
             <input
@@ -174,6 +181,7 @@ const ContactForm: FC<ContactFormProps> = ({
                 form.email && !isEmailValid ? "border-chill-teal" : ""
               }`}
               required
+              aria-label="Email"
             />
             {form.email && !isEmailValid && (
               <span className="mt-2 text-sm text-chill-teal pl-2">
@@ -190,6 +198,7 @@ const ContactForm: FC<ContactFormProps> = ({
           onChange={onChange}
           className={styles.input}
           required
+          aria-label="Subject"
         />
         <textarea
           name="content"
@@ -199,6 +208,7 @@ const ContactForm: FC<ContactFormProps> = ({
           onChange={onChange}
           className={styles.textarea}
           required
+          aria-label="Message"
         />
 
         <input
@@ -209,12 +219,12 @@ const ContactForm: FC<ContactFormProps> = ({
           className={styles.hiddenField}
           autoComplete="off"
           tabIndex={-1}
-          aria-label="Do not fill this out if you are human "
+          aria-label="Do not fill this out if you are human"
         />
 
         <button
           type="submit"
-          disabled={isSubmitting || cooldown > 0 || !isEmailValid}
+          disabled={isSubmitting || cooldown > 0 || !isFormValid}
           className={styles.button}
         >
           {isSubmitting
@@ -307,9 +317,12 @@ const Contact: FC = () => {
         honeypot: "",
       });
       setCooldown(COOLDOWN_SECONDS);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setSuccess(false);
-      const errorMsg = err.text || "An unknown error occurred.";
+      let errorMsg = "An unknown error occurred.";
+      if (err && typeof err === "object" && "text" in err) {
+        errorMsg = (err as { text: string }).text;
+      }
       setMsg(`❌ Failed to send message. ${errorMsg}`);
     } finally {
       setSubmitting(false);
@@ -344,10 +357,7 @@ const Contact: FC = () => {
           Contact Me
         </h2>
 
-        {/* Contact Info Panel */}
         <ContactInfoPanel />
-
-        {/* Contact Form */}
         <ContactForm
           form={form}
           onChange={handleChange}

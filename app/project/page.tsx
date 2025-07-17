@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, FC } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Projects, Project } from "@/constants/constants";
 import { Manrope } from "next/font/google";
@@ -80,7 +81,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
     className="bg-deep-slate bg-opacity-60 rounded-2xl overflow-hidden shadow-2xl border-2 border-night-navy flex flex-col cursor-pointer relative"
   >
     <div className="relative w-full h-56 sm:h-64 md:h-72 overflow-hidden">
-      <img
+      <Image
         src={project.image}
         alt={project.title}
         className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
