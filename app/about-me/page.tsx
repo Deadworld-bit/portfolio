@@ -107,7 +107,7 @@ export default function AboutMe() {
           <div className="relative w-full md:w-1/3 max-w-sm shrink-0">
             <div className="absolute -inset-2 rounded-xl bg-gradient-to-br from-soft-cyan/60 to-chill-teal/60 blur-lg z-0 opacity-75 animate-pulse-light" />
             <Image
-              src="/profile.jpg"
+              src="/Profile.jpg"
               alt="Phan Thanh Duc"
               width={300}
               height={360}
