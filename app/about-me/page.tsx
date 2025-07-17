@@ -10,8 +10,8 @@ import {
   FaFilm,
   FaGamepad,
 } from "react-icons/fa";
-import { motion } from "framer-motion"; 
-import { ReactNode } from "react"; 
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 import { easeOut } from "framer-motion";
 
 type StatCardProps = {
@@ -41,13 +41,13 @@ const cardVariants = {
 
 const StatCard = ({ icon, value, label }: StatCardProps) => (
   <motion.div
-    className="flex items-center gap-4 bg-black/70 backdrop-blur-sm p-4 rounded-lg border border-lavender-mist hover:border-chill-teal transition-colors duration-300 transform hover:scale-105 shadow-lg"
+    className="flex items-center gap-4 bg-black/70 backdrop-blur-sm p-4 rounded-lg border border-soft-cyan hover:border-chill-teal transition-colors duration-300 transform hover:scale-105 shadow-lg"
     variants={cardVariants}
-    whileHover={{ y: -5 }} 
+    whileHover={{ y: -5 }}
   >
     <div className="text-chill-teal text-3xl">{icon}</div>
     <div>
-      <div className="font-bold text-lg text-white">{value}</div>
+      <div className="font-bold text-lg text-soft-cyan">{value}</div>
       <div className="text-lavender-mist text-sm">{label}</div>
     </div>
   </motion.div>
@@ -55,26 +55,26 @@ const StatCard = ({ icon, value, label }: StatCardProps) => (
 
 const InterestCard = ({ icon, label }: InterestCardProps) => (
   <motion.div
-    className="flex flex-col items-center justify-center gap-2 bg-black/70 backdrop-blur-sm p-5 rounded-lg border border-lavender-mist hover:border-chill-teal transition-colors duration-300 aspect-square transform hover:scale-105 shadow-lg"
+    className="flex flex-col items-center justify-center gap-2 bg-black/70 backdrop-blur-sm p-5 rounded-lg border border-soft-cyan hover:border-chill-teal transition-colors duration-300 aspect-square transform hover:scale-105 shadow-lg"
     variants={cardVariants}
-    whileHover={{ y: -5 }} 
+    whileHover={{ y: -5 }}
   >
     <div className="text-chill-teal text-4xl mb-2">{icon}</div>
-    <span className="font-semibold text-white">{label}</span>
+    <span className="font-semibold text-soft-cyan">{label}</span>
   </motion.div>
 );
 
 export default function AboutMe() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-lavender-mist px-4 py-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-lavender-mist px-4 py-20 overflow-hidden bg-night-navy">
       <Image
-        src="/background_08.png" 
+        src="/background_08.png"
         alt="Cyberpunk City Background"
         layout="fill"
         objectFit="cover"
         quality={90}
         className="absolute inset-0 z-0"
-        priority 
+        priority
       />
 
       <div className="absolute inset-0 bg-black/30 z-10" />
@@ -124,11 +124,11 @@ export default function AboutMe() {
             <div className="text-chill-teal text-xl font-medium mb-6">
               Game & Web Developer
             </div>
-            <p className="mb-4 text-white leading-relaxed">
+            <p className="mb-4 text-lavender-mist leading-relaxed">
               Hello! I&apos;m a self-taught Game and Web Developer with over one year of professional experience. My journey began with a passion for crafting immersive digital experiences, which guided me into the exciting realms of game and web development. Over the past year, I&apos;ve worked on a variety of projects, partnering with clients to transform their visions into captivating games and dynamic websites.
             </p>
-            <p className="mb-8 text-white leading-relaxed">
-              Currently based in the Vietnam, I thrive on
+            <p className="mb-8 text-lavender-mist leading-relaxed">
+              Currently based in Vietnam, I thrive on
               bringing ideas to life, from initial concept to final deployment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
