@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
             letterSpacing: "0.2em",
           }}
         >
-          Hello, I'm
+          Hello, I&apos;m
         </motion.h2>
 
         <motion.h1

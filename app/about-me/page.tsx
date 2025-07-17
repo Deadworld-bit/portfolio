@@ -3,7 +3,6 @@
 import Image from "next/image";
 import {
   FaBriefcase,
-  FaProjectDiagram,
   FaUserTie,
   FaTools,
   FaHeadphones,
@@ -21,8 +20,8 @@ export default function AboutMe() {
           About Me
         </h1>
         <p className="text-lg md:text-xl font-light">
-          A passionate Digital Designer & Developer creating modern and
-          responsive web experiences.
+          A passionate Game & Web Developer creating modern and impressive
+          digital experiences.
         </p>
       </div>
 
@@ -47,19 +46,19 @@ export default function AboutMe() {
             Phan Thanh Duc
           </h2>
           <div className="text-chill-teal text-xl font-medium mb-6">
-            UI/UX Designer & Web Developer
+            Game & Web Developer
           </div>
-          <p className="mb-4">
-            Hello! I'm a self-taught Digital Designer and Developer with over
-            five years of professional experience. My journey began with a
+          <p className="mb-4 text-white">
+            Hello! I&apos;m a self-taught Digital Designer and Developer with
+            over five years of professional experience. My journey began with a
             passion for clean design and has led me to work with renowned
             digital agencies, delivering high-quality projects for a diverse
             range of clients.
           </p>
-          <p className="mb-8">
-            Currently based in the Vietnam, I specialize in crafting intuitive user
-            interfaces and seamless user experiences. I thrive on bringing ideas
-            to life, from initial concept to final deployment.
+          <p className="mb-8 text-white">
+            Currently based in the Vietnam, I specialize in crafting intuitive
+            user interfaces and seamless user experiences. I thrive on bringing
+            ideas to life, from initial concept to final deployment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a

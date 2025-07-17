@@ -1,3 +1,6 @@
+import { IconType } from "react-icons";
+import { FaMapMarkerAlt, FaPaperPlane, FaPhoneAlt } from "react-icons/fa";
+
 export interface Project {
   title: string;
   type: string[]; 
@@ -100,4 +103,28 @@ export const Projects: Project[] = [
     startDate: "2023-06",
     endDate: "2023-07"
   }
+];
+
+export interface Contact {
+  Icon : IconType;
+  title: string;
+  lines: string[];
+}
+
+export const Contacts : Contact[] = [
+  {
+      Icon: FaPhoneAlt,
+      title: "Call Me", 
+      lines: ["0977346713"],
+    },
+    {
+      Icon: FaPaperPlane,
+      title: "E-mail",
+      lines: ["phanthanhduc2709@gmail.com", "deadworld128@gmail.com"],
+    },
+    {
+      Icon: FaMapMarkerAlt,
+      title: "Location",
+      lines: ["Vinhome GrandPark", "Ho Chi Minh City, Vietnam"], 
+    },
 ];

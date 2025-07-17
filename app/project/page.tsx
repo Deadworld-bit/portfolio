@@ -96,7 +96,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
           </span>
         ))}
       </div>
-      <div className="absolute top-3 right-3 bg-night-navy bg-opacity-70 text-soft-cyan text-xs md:text-sm px-3 py-1 md:px-4 md:py-2 rounded-lg flex items-center space-x-1.5">
+      <div className="absolute top-3 right-3 bg-night-navy bg-opacity-70 text-white text-xs md:text-sm px-3 py-1 md:px-4 md:py-2 rounded-lg flex items-center space-x-1.5">
         <span className="font-medium">{formatDate(project.startDate)}</span>
         <span>-</span>
         <span className="font-medium">{formatDate(project.endDate)}</span>

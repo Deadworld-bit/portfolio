@@ -8,7 +8,7 @@ import {
   FaUser,
   FaEnvelope,
   FaLinkedinIn,
-  FaTwitter,
+  FaFacebook,
   FaGithub,
   FaDiscord,
 } from "react-icons/fa";
@@ -23,7 +23,7 @@ const NAV_ITEMS = [
 
 const SOCIALS = [
   { href: "https://www.linkedin.com/in/thanhducdev/", icon: <FaLinkedinIn /> },
-  { href: "https://twitter.com", icon: <FaTwitter /> },
+  { href: "https://facebook.com", icon: <FaFacebook /> }, 
   { href: "https://github.com/Deadworld-bit", icon: <FaGithub /> },
   { href: "https://discord.com/users/Deadworld#8732", icon: <FaDiscord /> },
 ];
