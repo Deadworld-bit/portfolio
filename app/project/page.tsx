@@ -84,6 +84,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => (
       <Image
         src={project.image}
         alt={project.title}
+        fill
         className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
       />
       <div className="absolute top-3 left-3 flex flex-wrap gap-2">

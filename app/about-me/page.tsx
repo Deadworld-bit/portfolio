@@ -6,7 +6,7 @@ import {
   FaUserTie,
   FaTools,
   FaHeadphones,
-  FaSuitcase,
+  FaUtensils,
   FaFilm,
   FaGamepad,
 } from "react-icons/fa";
@@ -125,15 +125,16 @@ export default function AboutMe() {
               Game & Web Developer
             </div>
             <p className="mb-4 text-lavender-mist leading-relaxed">
-              Hello! I&apos;m a self-taught Game and Web Developer with over one year of professional experience. My journey began with a passion for crafting immersive digital experiences, which guided me into the exciting realms of game and web development. Over the past year, I&apos;ve worked on a variety of projects, partnering with clients to transform their visions into captivating games and dynamic websites.
+              Hello! I&apos;m a Web Developer who began my career crafting dynamic, user-focused websites and over the past year I&apos;ve transitioned into Game Development. My journey started with a passion for building engaging web experiences, which naturally led me to explore the exciting world of games. Since then, I&apos;ve partnered with clients to bring their visions to life transforming ideas into both immersive web applications and captivating games.
             </p>
             <p className="mb-8 text-lavender-mist leading-relaxed">
-              Currently based in Vietnam, I thrive on
-              bringing ideas to life, from initial concept to final deployment.
+              Currently based in Vietnam, I thrive on bringing ideas to life,
+              from initial concept to final deployment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <motion.a
-                href="#"
+                href="/PhanThanhDuc_CV.pdf" 
+                download="PhanThanhDuc_CV.pdf"
                 className="px-8 py-3 rounded-lg bg-chill-teal text-night-navy font-bold shadow-lg hover:bg-soft-cyan transition-all duration-300 transform hover:scale-105"
                 whileHover={{
                   scale: 1.05,
@@ -196,9 +197,9 @@ export default function AboutMe() {
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
               <InterestCard icon={<FaHeadphones />} label="Music" />
-              <InterestCard icon={<FaSuitcase />} label="Travel" />
               <InterestCard icon={<FaFilm />} label="Movies" />
               <InterestCard icon={<FaGamepad />} label="Games" />
+              <InterestCard icon={<FaUtensils />} label="Cooking" />
             </div>
           </motion.div>
         </div>
