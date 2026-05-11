@@ -5,10 +5,6 @@ import emailjs from "@emailjs/browser";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { FaPhoneAlt, FaPaperPlane, FaMapMarkerAlt } from "react-icons/fa";
 import { motion, Variants } from "framer-motion";
-import { Orbitron } from "next/font/google";
-import backgroundImage from "@/public/background_07.png";
-
-const orbitron = Orbitron({ subsets: ["latin"], weight: ["700"] });
 
 // Type Definitions
 interface FormState {
@@ -31,37 +27,36 @@ interface ContactFormProps {
   isSuccess: boolean;
 }
 
-// Constants
 const COOLDOWN_SECONDS: number = 30;
 const EMAIL_REGEX: RegExp = /^\S+@\S+\.\S+$/;
 
-// Styles
 const styles = {
-  input: `w-full bg-night-navy border border-deep-slate rounded-md px-4 py-3 text-soft-cyan placeholder-lavender-mist
-          focus:outline-none focus:border-chill-teal transition duration-300 ease-in-out text-base`,
-  textarea: `w-full bg-night-navy border border-deep-slate rounded-md px-4 py-3 text-soft-cyan placeholder-lavender-mist
-            focus:outline-none focus:border-chill-teal transition duration-300 ease-in-out resize-none text-base`,
-  button: `w-full mt-8 px-8 py-3 bg-chill-teal hover:bg-soft-cyan text-night-navy
-           font-bold text-lg rounded-md shadow-md transition-all duration-300 ease-in-out
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-chill-teal disabled:hover:text-night-navy`,
+  input: `w-full bg-night-navy/60 border border-chill-teal/15 rounded-xl px-4 py-3 text-soft-cyan placeholder-lavender-mist/50
+          focus:outline-none focus:border-chill-teal focus:ring-1 focus:ring-chill-teal/40
+          transition duration-300 ease-in-out text-base`,
+  textarea: `w-full bg-night-navy/60 border border-chill-teal/15 rounded-xl px-4 py-3 text-soft-cyan placeholder-lavender-mist/50
+            focus:outline-none focus:border-chill-teal focus:ring-1 focus:ring-chill-teal/40
+            transition duration-300 ease-in-out resize-none text-base`,
+  button: `w-full mt-2 px-8 py-3.5 bg-accent hover:bg-accent-soft text-night-navy
+           font-bold text-base rounded-full shadow-lg shadow-accent/25 transition-all duration-300 ease-in-out
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-accent
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-deep-slate`,
   hiddenField: "hidden",
 };
 
-// Animation Variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
   },
 };
 
 const fadeSlideUp: Variants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// Custom Hooks
 function useCooldownTimer(
   initial: number = 0
 ): [number, React.Dispatch<React.SetStateAction<number>>] {
@@ -86,7 +81,6 @@ function useAutoClear(
   return [msg, setMsg];
 }
 
-// Contact Info Panel
 const CONTACT_INFO = [
   {
     Icon: FaPhoneAlt,
@@ -105,33 +99,35 @@ const CONTACT_INFO = [
   },
 ];
 
-const ContactInfoPanel: FC = () => {
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 w-full">
-      {CONTACT_INFO.map(({ Icon, title, lines }) => (
-        <motion.div
-          key={title}
-          variants={fadeSlideUp}
-          className="bg-deep-slate p-6 rounded-md flex items-center space-x-4 md:space-x-6 text-left"
-        >
-          <div className="bg-chill-teal rounded-full p-4 flex-shrink-0">
-            <Icon className="text-night-navy text-2xl" />
+const ContactInfoPanel: FC = () => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14 w-full">
+    {CONTACT_INFO.map(({ Icon, title, lines }) => (
+      <motion.div
+        key={title}
+        variants={fadeSlideUp}
+        whileHover={{ y: -4 }}
+        className="bg-deep-slate/60 backdrop-blur-md p-6 rounded-2xl border border-chill-teal/15 hover:border-chill-teal/50 transition-colors flex items-start gap-4 shadow-lg shadow-night-navy/40"
+      >
+        <div className="w-12 h-12 rounded-xl bg-chill-teal/15 text-chill-teal flex items-center justify-center flex-shrink-0">
+          <Icon className="text-xl" />
+        </div>
+        <div className="min-w-0">
+          <h4 className="font-display font-bold text-white text-base mb-1">
+            {title}
+          </h4>
+          <div className="text-lavender-mist/85 text-sm space-y-0.5">
+            {lines.map((line, i) => (
+              <div key={i} className="break-words">
+                {line}
+              </div>
+            ))}
           </div>
-          <div>
-            <h4 className="font-bold text-white text-lg mb-1">{title}</h4>
-            <div className="font-sans text-white text-sm space-y-1">
-              {lines.map((line, i) => (
-                <div key={i}>{line}</div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  );
-};
+        </div>
+      </motion.div>
+    ))}
+  </div>
+);
 
-// Contact Form
 const ContactForm: FC<ContactFormProps> = ({
   form,
   onChange,
@@ -152,15 +148,13 @@ const ContactForm: FC<ContactFormProps> = ({
   return (
     <motion.div
       variants={fadeSlideUp}
-      className="bg-deep-slate p-8 rounded-md w-full max-w-3xl mx-auto"
+      className="bg-deep-slate/60 backdrop-blur-md p-6 md:p-10 rounded-3xl w-full max-w-3xl mx-auto border border-chill-teal/15 shadow-2xl shadow-night-navy/60"
     >
-      <h3
-        className={`${orbitron.className} text-3xl md:text-4xl font-extrabold mb-8 text-white text-center`}
-      >
-        Get In Touch
+      <h3 className="font-display text-2xl md:text-3xl font-bold mb-8 text-white text-center">
+        Send a Message
       </h3>
-      <form onSubmit={onSubmit} className="space-y-6" noValidate>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={onSubmit} className="space-y-5" noValidate>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <input
             name="fullName"
             placeholder="Name"
@@ -178,13 +172,13 @@ const ContactForm: FC<ContactFormProps> = ({
               value={form.email}
               onChange={onChange}
               className={`${styles.input} ${
-                form.email && !isEmailValid ? "border-chill-teal" : ""
+                form.email && !isEmailValid ? "border-accent" : ""
               }`}
               required
               aria-label="Email"
             />
             {form.email && !isEmailValid && (
-              <span className="mt-2 text-sm text-chill-teal pl-2">
+              <span className="mt-2 text-xs text-accent pl-2">
                 Please enter a valid email.
               </span>
             )}
@@ -202,7 +196,7 @@ const ContactForm: FC<ContactFormProps> = ({
         />
         <textarea
           name="content"
-          placeholder="Message"
+          placeholder="Tell me about your project..."
           rows={6}
           value={form.content}
           onChange={onChange}
@@ -237,18 +231,18 @@ const ContactForm: FC<ContactFormProps> = ({
         {message && (
           <div
             role="alert"
-            className={`mt-4 flex items-center space-x-3 rounded-lg px-5 py-4 ${
+            className={`mt-4 flex items-center gap-3 rounded-xl px-5 py-4 border ${
               isSuccess
-                ? "bg-chill-teal text-night-navy"
-                : "bg-soft-cyan text-night-navy"
+                ? "bg-chill-teal/15 border-chill-teal/40 text-chill-teal"
+                : "bg-accent/15 border-accent/40 text-accent"
             }`}
           >
             {isSuccess ? (
-              <CheckCircleIcon className="w-6 h-6 text-night-navy" />
+              <CheckCircleIcon className="w-5 h-5 flex-shrink-0" />
             ) : (
-              <XCircleIcon className="w-6 h-6 text-night-navy" />
+              <XCircleIcon className="w-5 h-5 flex-shrink-0" />
             )}
-            <span className="text-base">{message}</span>
+            <span className="text-sm">{message}</span>
           </div>
         )}
       </form>
@@ -280,12 +274,12 @@ const Contact: FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (form.honeypot) {
-      setMsg("🚫 Spam detected. Submission blocked.");
+      setMsg("Spam detected. Submission blocked.");
       setSuccess(false);
       return;
     }
     if (cooldown > 0) {
-      setMsg(`⏳ Please wait ${cooldown}s before sending another message.`);
+      setMsg(`Please wait ${cooldown}s before sending another message.`);
       setSuccess(false);
       return;
     }
@@ -307,7 +301,7 @@ const Contact: FC = () => {
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
-      setMsg("✅ Message sent successfully!");
+      setMsg("Message sent successfully — I'll get back to you soon!");
       setSuccess(true);
       setForm({
         fullName: "",
@@ -323,7 +317,7 @@ const Contact: FC = () => {
       if (err && typeof err === "object" && "text" in err) {
         errorMsg = (err as { text: string }).text;
       }
-      setMsg(`❌ Failed to send message. ${errorMsg}`);
+      setMsg(`Failed to send message. ${errorMsg}`);
     } finally {
       setSubmitting(false);
     }
@@ -334,28 +328,43 @@ const Contact: FC = () => {
       id="contact"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      className="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 sm:px-6 lg:px-8 bg-night-navy text-soft-cyan"
+      viewport={{ once: true, amount: 0.15 }}
+      className="relative flex flex-col items-center justify-center min-h-screen py-24 lg:py-32 px-4 sm:px-6 lg:px-12 text-soft-cyan overflow-hidden"
     >
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${backgroundImage.src})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/background_07.png')" }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 z-0 bg-gradient-to-b from-night-navy/85 via-night-navy/70 to-night-navy"
       />
 
       <motion.div
         variants={containerVariants}
         className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center"
       >
-        <h2
-          className={`${orbitron.className} text-4xl md:text-5xl font-extrabold mb-4 text-white text-center`}
+        <motion.div
+          variants={fadeSlideUp}
+          className="text-center mb-14 max-w-2xl"
         >
-          Contact Me
-        </h2>
+          <div className="flex items-center justify-center gap-3 mb-5 text-chill-teal/80">
+            <span className="h-px w-10 bg-chill-teal/40" />
+            <span className="text-xs font-semibold tracking-[0.25em] uppercase">
+              Get in touch
+            </span>
+            <span className="h-px w-10 bg-chill-teal/40" />
+          </div>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-4">
+            Let&apos;s work{" "}
+            <span className="text-gradient-warm">together</span>
+          </h1>
+          <p className="text-lavender-mist/85 text-base md:text-lg">
+            Have a project in mind, or just want to say hi? Drop me a line — I
+            usually reply within a day.
+          </p>
+        </motion.div>
 
         <ContactInfoPanel />
         <ContactForm

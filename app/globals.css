@@ -1,32 +1,140 @@
 @import "tailwindcss";
 
-:root {
-  --color-night-navy:   #0F1C2C;
-  --color-deep-slate:   #1E2A38;
-  --color-chill-teal:   #3FBDB0;
-  --color-soft-cyan:    #7FD3F6;
-  --color-lavender-mist:#C1C8E4;
+@theme {
+  --color-night-navy: #0B1622;
+  --color-deep-slate: #14202E;
+  --color-mid-slate: #1B2A3C;
+  --color-chill-teal: #3FBDB0;
+  --color-soft-cyan: #7FD3F6;
+  --color-lavender-mist: #C1C8E4;
+  --color-accent: #FB923C;
+  --color-accent-soft: #FDBA74;
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+}
+
+/* Layered mesh-gradient + grain backdrop used site-wide.
+   Replaces the photographic page backgrounds. */
+.site-bg {
+  position: relative;
+  background-color: var(--color-night-navy);
+  background-image:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(63, 189, 176, 0.22),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 82% 78%,
+      rgba(127, 211, 246, 0.16),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 65% 18%,
+      rgba(251, 146, 60, 0.10),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 30% 85%,
+      rgba(63, 189, 176, 0.10),
+      transparent 50%
+    );
+}
+
+.site-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Grid pattern utility for hero/section accents */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(63, 189, 176, 0.05) 1px, transparent 1px),
+    linear-gradient(
+      to right,
+      rgba(63, 189, 176, 0.05) 1px,
+      transparent 1px
+    );
+  background-size: 56px 56px;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+/* WCAG 2.1 SC 2.3.3 — users requesting reduced motion get a static row. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
 }
 
 @layer utilities {
-  /* text colors */
-  .text-night-navy      { color: var(--color-night-navy) !important; }
-  .text-deep-slate      { color: var(--color-deep-slate) !important; }
-  .text-chill-teal      { color: var(--color-chill-teal) !important; }
-  .text-soft-cyan       { color: var(--color-soft-cyan) !important; }
-  .text-lavender-mist   { color: var(--color-lavender-mist) !important; }
+  .font-display {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
 
-  /* background colors */
-  .bg-night-navy        { background-color: var(--color-night-navy) !important; }
-  .bg-deep-slate        { background-color: var(--color-deep-slate) !important; }
-  .bg-chill-teal        { background-color: var(--color-chill-teal) !important; }
-  .bg-soft-cyan         { background-color: var(--color-soft-cyan) !important; }
-  .bg-lavender-mist     { background-color: var(--color-lavender-mist) !important; }
+  .text-gradient-cool {
+    background-image: linear-gradient(
+      135deg,
+      var(--color-chill-teal),
+      var(--color-soft-cyan)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
 
-  /* borders & strokes */
-  .border-night-navy    { border-color: var(--color-night-navy) !important; }
-  .border-deep-slate    { border-color: var(--color-deep-slate) !important; }
-  .border-chill-teal    { border-color: var(--color-chill-teal) !important; }
-  .border-soft-cyan     { border-color: var(--color-soft-cyan) !important; }
-  .border-lavender-mist { border-color: var(--color-lavender-mist) !important; }
+  .text-gradient-warm {
+    background-image: linear-gradient(
+      135deg,
+      var(--color-accent),
+      var(--color-accent-soft)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
